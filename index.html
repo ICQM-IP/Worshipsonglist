@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ICQM詩歌資料庫</title>
+    <!-- 引入同資料夾內的詩歌資料檔 -->
+    <script src="songs.js"></script>
+    <style>
+        :root {
+            --primary-color: #4f46e5;
+            --primary-hover: #4338ca;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --text-sub: #64748b;
+            --border-color: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        header h1 {
+            font-size: 2rem;
+            color: var(--text-main);
+            margin-bottom: 8px;
+        }
+
+        header p {
+            color: var(--text-sub);
+        }
+
+        /* 搜尋與篩選區 */
+        .controls {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .search-bar {
+            width: 100%;
+            padding: 12px 16px;
+            font-size: 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .search-bar:focus {
+            border-color: var(--primary-color);
+        }
+
+        .category-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag-btn {
+            background: #ffffff;
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
+            padding: 8px 14px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.88rem;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .tag-btn:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .tag-btn.active {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        /* 詩歌卡片區 */
+        .song-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .song-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .song-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .card-header {
+            margin-bottom: 12px;
+        }
+
+        .song-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 4px;
+        }
+
+        .song-artist {
+            font-size: 0.85rem;
+            color: var(--text-sub);
+            margin-bottom: 8px;
+        }
+
+        .prayer-modal-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background-color: #fef2f2;
+            color: #991b1b;
+            border: 1px solid #fecaca;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 4px;
+            transition: all 0.2s;
+        }
+
+        .prayer-modal-btn:hover {
+            background-color: #fee2e2;
+            border-color: #fca5a5;
+        }
+
+        .theme-badge {
+            display: inline-block;
+            background: #e0e7ff;
+            color: var(--primary-color);
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .scripture-box {
+            background: #fffbe0;
+            border-left: 4px solid #f59e0b;
+            padding: 10px 12px;
+            border-radius: 4px;
+            font-size: 0.88rem;
+            color: #78350f;
+            margin-bottom: 16px;
+            line-height: 1.4;
+        }
+
+        .scripture-ref {
+            font-weight: 600;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .yt-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: #ff0000;
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            border-radius: 6px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: background 0.2s;
+        }
+
+        .yt-btn:hover {
+            background: #cc0000;
+        }
+
+        .no-results {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 40px;
+            color: var(--text-sub);
+        }
+
+        /* -----------------------------------
+           彈出視窗 (Modal) 與圖卡樣式
+        ----------------------------------- */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(4px);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            padding: 20px;
+        }
+
+        .modal-card {
+            position: relative;
+            width: 100%;
+            max-width: 680px;
+            border-radius: 16px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 40px 45px;
+            
+            /* 預設的暖色溫馨背景 */
+            background-color: #fce8d5;
+            background-image: radial-gradient(circle at 10% 20%, #ffedd5 0%, #fed7aa 90%);
+            background-size: cover;
+            background-position: center;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(0, 0, 0, 0.2);
+            color: white;
+            border: none;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            font-size: 1.1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s;
+            z-index: 10;
+        }
+
+        .close-btn:hover {
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content-box {
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(3px);
+            padding: 24px 28px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            color: #800c1e; /* 典雅深紅字體 */
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        /* 經文樣式 */
+        .modal-scripture-text {
+            font-size: 1.25rem;
+            font-weight: 800;
+            line-height: 1.6;
+            letter-spacing: 0.5px;
+        }
+
+        .modal-scripture-ref {
+            font-size: 1rem;
+            font-weight: 800;
+            text-align: right;
+            margin-top: 4px;
+        }
+
+        /* 分隔線 */
+        .modal-divider {
+            height: 1px;
+            background: rgba(128, 12, 30, 0.2);
+            margin: 4px 0;
+        }
+
+        /* 禱告區塊 */
+        .modal-title {
+            font-size: 1.5rem;
+            font-weight: 900;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+
+        .modal-body-text {
+            font-size: 1.05rem;
+            font-weight: 700;
+            line-height: 1.8;
+        }
+
+        .modal-body-text ul {
+            list-style: none;
+        }
+
+        .modal-body-text li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 6px;
+        }
+
+        .modal-body-text li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #800c1e;
+            font-weight: bold;
+        }
+
+        @media (max-width: 600px) {
+            .modal-card {
+                padding: 25px 20px;
+            }
+            .modal-scripture-text { font-size: 1.05rem; }
+            .modal-title { font-size: 1.25rem; }
+            .modal-body-text { font-size: 0.92rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>🎵 ICQM詩歌資料庫</h1>
+        <p>主題分類與聖經經文</p>
+    </header>
+
+    <div class="controls">
+        <input type="text" id="searchInput" class="search-bar" placeholder="搜尋歌名、歌手、主題或經文...">
+        
+        <div class="category-tags" id="categoryTags">
+            <button class="tag-btn active" data-category="全部" onclick="filterCategory('全部')">全部詩歌</button>
+            <button class="tag-btn" data-category="感謝" onclick="filterCategory('感謝')">感謝 Thanksgiving</button>
+            <button class="tag-btn" data-category="宣告" onclick="filterCategory('宣告')">宣告 Declaration</button>
+            <button class="tag-btn" data-category="讚美" onclick="filterCategory('讚美')">讚美 Praise</button>
+            <button class="tag-btn" data-category="信靠" onclick="filterCategory('信靠')">信靠 Trust</button>
+            <button class="tag-btn" data-category="呼求" onclick="filterCategory('呼求')">呼求 Pursuit</button>
+            <button class="tag-btn" data-category="堅持" onclick="filterCategory('堅持')">堅持 Persistence</button>
+            <button class="tag-btn" data-category="悔改" onclick="filterCategory('悔改')">悔改 Repentance</button>
+            <button class="tag-btn" data-category="愛慕" onclick="filterCategory('愛慕')">愛慕 Adoration</button>
+            <button class="tag-btn" data-category="渴慕" onclick="filterCategory('渴慕')">渴慕 Longing</button>
+            <button class="tag-btn" data-category="獻上" onclick="filterCategory('獻上')">獻上 Surrender</button>
+            <button class="tag-btn" data-category="禱告" onclick="filterCategory('禱告')">禱告 Prayer</button>
+            <button class="tag-btn" data-category="等候" onclick="filterCategory('等候')">等候 Waiting</button>
+            <button class="tag-btn" data-category="謙卑" onclick="filterCategory('謙卑')">謙卑 Humility</button>
+            <button class="tag-btn" data-category="跟隨" onclick="filterCategory('跟隨')">跟隨 Follow</button>
+        </div>
+    </div>
+
+    <div class="song-grid" id="songGrid"></div>
+
+    <!-- 彈出視窗 (Modal) -->
+    <div id="prayerModal" class="modal-overlay" onclick="closeModalOnOuterClick(event)">
+        <div class="modal-card" id="modalCard">
+            <button class="close-btn" onclick="closePrayerModal()">✕</button>
+            <div class="modal-content-box" id="modalContentBox">
+                <!-- JavaScript 將會自動在這裡填入經文與禱告內文 -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentCategory = '全部';
+        let searchQuery = '';
+
+        window.addEventListener('DOMContentLoaded', () => {
+            renderSongs();
+        });
+
+        function renderSongs() {
+            const grid = document.getElementById('songGrid');
+            grid.innerHTML = '';
+
+            if (typeof songDatabase === 'undefined' || !Array.isArray(songDatabase)) {
+                grid.innerHTML = `<div class="no-results">❌ 找不到 songs.js 檔案，請確認兩檔案放在同一資料夾中。</div>`;
+                return;
+            }
+
+            const filteredSongs = songDatabase.filter(song => {
+                const title = song.title || '';
+                const artist = song.artist || '';
+                const theme = song.theme || '';
+                const scriptureRef = song.scriptureRef || '';
+                const scriptureText = song.scriptureText || '';
+
+                const matchesCategory = (currentCategory === '全部') || (theme === currentCategory);
+                const matchesSearch = title.includes(searchQuery) || 
+                                      artist.includes(searchQuery) || 
+                                      theme.includes(searchQuery) || 
+                                      scriptureRef.includes(searchQuery) ||
+                                      scriptureText.includes(searchQuery);
+                return matchesCategory && matchesSearch;
+            });
+
+            if (filteredSongs.length === 0) {
+                grid.innerHTML = `<div class="no-results">目前沒有符合條件的詩歌 😅</div>`;
+                return;
+            }
+
+            filteredSongs.forEach((song, index) => {
+                const card = document.createElement('div');
+                card.className = 'song-card';
+                card.innerHTML = `
+                    <div>
+                        <div class="card-header">
+                            <div class="song-title">${song.title || '未命名詩歌'}</div>
+                            <div class="song-artist">${song.artist || ''}</div>
+                            <button class="prayer-modal-btn" onclick="openPrayerModal(${index})">
+                                🙏 禱告與經文圖卡
+                            </button>
+                        </div>
+                        <span class="theme-badge">🏷️ ${song.theme || '未分類'}</span>
+                        <div class="scripture-box">
+                            <span class="scripture-ref">📖 ${song.scriptureRef || ''}</span>
+                            「${song.scriptureText || ''}」
+                        </div>
+                    </div>
+                    <a href="${song.youtubeUrl || '#'}" target="_blank" class="yt-btn">
+                        ▶ 在 YouTube 上觀看
+                    </a>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        /* -----------------------------------
+           彈出視窗 (Modal) 控制邏輯
+        ----------------------------------- */
+        function openPrayerModal(index) {
+            const song = songDatabase[index];
+            if (!song) return;
+
+            const modal = document.getElementById('prayerModal');
+            const modalCard = document.getElementById('modalCard');
+            const contentBox = document.getElementById('modalContentBox');
+
+            // 設定背景圖片 (若有指定圖片則替換，沒有就使用預設的質感暖色背景)
+            if (song.bgImage && song.bgImage.trim() !== '') {
+                modalCard.style.backgroundImage = `url('${song.bgImage}')`;
+            } else {
+                modalCard.style.backgroundImage = "radial-gradient(circle at 10% 20%, #ffedd5 0%, #fed7aa 90%)";
+            }
+
+            let htmlContent = '';
+
+            // 1. 顯示聖經經文內文 + 出處
+            if (song.scriptureText || song.scriptureRef) {
+                htmlContent += `
+                    <div>
+                        <div class="modal-scripture-text">「${song.scriptureText || ''}」</div>
+                        <div class="modal-scripture-ref">—— ${song.scriptureRef || ''}</div>
+                    </div>
+                `;
+            }
+
+            // 2. 若有禱告詞，加入分隔線與禱告列表
+            if (song.prayerText && song.prayerText.length > 0) {
+                if (song.scriptureText) {
+                    htmlContent += `<div class="modal-divider"></div>`;
+                }
+                
+                htmlContent += `
+                    <div>
+                        <div class="modal-title">禱告</div>
+                        <div class="modal-body-text">
+                            <ul>
+                                ${song.prayerText.map(line => `<li>${line}</li>`).join('')}
+                            </ul>
+                        </div>
+                    </div>
+                `;
+            }
+
+            contentBox.innerHTML = htmlContent;
+            modal.style.display = 'flex';
+        }
+
+        function closePrayerModal() {
+            document.getElementById('prayerModal').style.display = 'none';
+        }
+
+        function closeModalOnOuterClick(e) {
+            if (e.target.id === 'prayerModal') {
+                closePrayerModal();
+            }
+        }
+
+        function filterCategory(category) {
+            currentCategory = category;
+            
+            const buttons = document.querySelectorAll('.tag-btn');
+            buttons.forEach(btn => {
+                if (btn.getAttribute('data-category') === category) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+
+            renderSongs();
+        }
+
+        document.getElementById('searchInput').addEventListener('input', (e) => {
+            searchQuery = e.target.value.trim();
+            renderSongs();
+        });
+    </script>
+</body>
+</html>
