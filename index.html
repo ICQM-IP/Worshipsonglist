@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ICQM詩歌資料庫</title>
     <!-- 引入同資料夾內的詩歌資料檔 -->
-    <script src="songs.js"></script>
+<script>
+  document.write('<script src="songs.js?v=' + Date.now() + '"><\/script>');
+</script>
     <style>
         :root {
             --primary-color: #4f46e5;
