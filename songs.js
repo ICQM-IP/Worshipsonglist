@@ -902,20 +902,6 @@ var songDatabase = [
         "youtubeUrl": "https://www.youtube.com/watch?v=r5L6QlAH3L4&list=RDr5L6QlAH3L4&start_radio=1"
     },
     {
-        "title": "空空的墳墓",
-        "artist": "ACM (香港基督徒音樂事工協會)",
-        "theme": "讚美",
-        "scriptureRef": "彼得前書 1:3",
-        "scriptureText": "願頌讚歸與我們主耶穌基督的父神！祂曾照自己的大憐憫，藉耶穌基督從死裏復活，重生了我們，叫我們有活潑的盼望。",
-        "prayerText": [
-            "讚美主！耶穌祢是戰勝死亡，得勝的君王，我們讚美祢的大能，在祢凡事都能",
-            "感謝耶穌豐盛的慈愛，背負我們的罪，使我們有永恆的盼望",
-            "求主賜我專一的心跟隨祢，願祢的話語指引我每一步，我需要祢"
-        ],
-        "bgImage": "",
-        "youtubeUrl": "https://www.youtube.com/watch?v=hsCPeIaXDP8&list=RDhsCPeIaXDP8&start_radio=1"
-    },
-    {
         "title": "何等美麗",
         "artist": "約書亞樂團",
         "theme": "愛慕",
@@ -940,5 +926,473 @@ var songDatabase = [
         ],
         "bgImage": "",
         "youtubeUrl": "https://www.youtube.com/watch?v=jHpqPOc9TCA&list=RDjHpqPOc9TCA&start_radio=1"
+    },
+    {
+        "title": "牽手",
+        "artist": "約書亞樂團",
+        "theme": "呼求",
+        "scriptureRef": "以賽亞書 41:13",
+        "scriptureText": "因為我耶和華—你的神必拉著你的右手，對你說：『不要害怕！我必幫助你。』",
+        "prayerText": [
+            "親愛的天父，在我疲乏軟弱時，我要轉眼仰望祢，願祢的手扶持我，鼓勵我",
+            "在我迷失時，求神祢的手引領我，讓我回到祢的身邊，從新建立我使我剛強壯膽",
+            "神的恩典是如此浩瀚，我要憑信來到祢的施恩寶座前，為要蒙憐恤，求祢照亮我的生命，以祢的愛環繞我"
+        ],
+        "bgImage": "",
+        "youtubeUrl": "https://www.youtube.com/watch?v=ZCVR_elf17c"
+    },
+    {
+        "title": "無盡的愛",
+        "artist": "約書亞樂團",
+        "theme": "信靠",
+        "scriptureRef": "耶利米書 31:3",
+        "scriptureText": "古時耶和華向以色列顯現，說：『我以永遠的愛愛你，因此我以慈愛吸引你。』",
+        "prayerText": [
+            "耶穌感謝祢，祢帶我出黑暗入光明，以我的名字呼喚我，引導我倚靠祢，在祢裏面得着安穩及盼望",
+            "求神祢的愛再次觸摸我的心，成為我最大的滿足，讓我捉緊在祢裡面的身份",
+            "主我願更深經歷祢，我願放開雙手，相信祢必定帶我走進豐盛，祢的慈愛必一生一世伴隨我"
+        ],
+        "bgImage": "",
+        "youtubeUrl": "https://www.youtube.com/watch?v=ChzCEmZMXDc&list=RDChzCEmZMXDc&start_radio=1"
+    },
+    {
+        "title": "Goodness of God",
+        "artist": "Bethel Music",
+        "theme": "宣告",
+        "scriptureRef": "詩篇 23:6",
+        "scriptureText": "我一生一世必有恩惠慈愛隨著我；我也要住在耶和華的殿中，直到永遠。",
+        "prayerText": [
+            "主我讚美祢，祢是晝夜與我同在的神，祢傾聽我的禱告，祢知道我一切需要",
+            "感謝主，在困難時祢總在我身旁，祢以恩慈良善回應我，願我全心信靠祢，祢是信實不變的主",
+            "主我感謝祢，我一生一世必有恩惠慈愛追隨着我，祢是何等美好的主！我要一生跟隨祢，一切都要獻給祢"
+        ],
+        "bgImage": "",
+        "youtubeUrl": "https://www.youtube.com/watch?v=-f4MUUMWMV4&list=RD-f4MUUMWMV4&start_radio=1"
+    },
+    {
+        "title": "不停讚美祢",
+        "artist": "讚美之泉",
+        "theme": "讚美",
+        "scriptureRef": "詩篇34:1, 3",
+        "scriptureText": "我要時時稱頌耶和華， 讚美他的話常在我口中。你們要和我一同尊耶和華為大， 讓我們一同高舉他的名。",
+        "prayerText": [
+            "創造天地萬物的主，我要全心讚美祢！我要讚美祢，祢配得一切尊貴，能力，榮耀",
+            "感謝祢一切美好的賜予，我要時常稱謝祢，高舉祢的名",
+            "唯有祢是超越一切的主，祢是施行拯救的神，我的盼望在於祢，我的能力也在於祢，我要全心讚美祢！"
+        ],
+        "bgImage": "",
+        "youtubeUrl": "https://www.youtube.com/watch?v=dhJCJcGojHA&list=RDdhJCJcGojHA&start_radio=1"
+    },
+    {
+        "title": "Mighty 祢愛有能力",
+        "artist": "讚美之泉",
+        "theme": "讚美",
+        "scriptureRef": "約翰一書 4:4",
+        "scriptureText": "小子們哪，你們是屬神的，並且勝過了他們；因為那在你們裏面的，比那在世界上的更大。",
+        "prayerText": [
+            "主祢是滿有能力的神，萬物都俯伏在祢腳前，唯有祢能施行拯救，祢的十字架大有能力，在祢沒有難成的事",
+            "主願我聽見祢的聲音，尋見祢，親自看見祢的真實，願祢的甦醒我的心去讚美祢"
+        ],
+        "bgImage": "",
+        "youtubeUrl": "https://www.youtube.com/watch?v=5BhftNuamk8&list=RD5BhftNuamk8&start_radio=1"
+    },
+    {
+        "title": "堅強的愛",
+        "artist": "約書亞樂團",
+        "theme": "讚美",
+        "scriptureRef": "羅馬書 8:38-39",
+        "scriptureText": "因為我深信無論是死，是生，是天使，是掌權的，是現在的事，是將來的事……都不能叫我們與神的愛隔絕；這愛是在我們的主基督耶穌裏的。",
+        "prayerText": [
+            "讚美主！沒有任何人或事能使我們與祢的愛隔絕，我要領受祢完全的愛，我的心要因祢的愛而自由",
+            "求神更新我的心，讓我從新認識祢的愛，我要竭力來到祢跟前，親自經歷祢的愛是何等長闊高深",
+            "願祢釋放我的心，教我掙脫一切綑綁，單單跟隨祢"
+        ],
+        "bgImage": "",
+        "youtubeUrl": "https://www.youtube.com/watch?v=a39Aqfa6u1k&list=RDa39Aqfa6u1k&start_radio=1"
+    },
+    {
+        "title": "我們愛戴的王",
+        "artist": "讚美之泉",
+        "theme": "讚美",
+        "scriptureRef": "歌羅西書 1:13",
+        "scriptureText": "祂救了我們脫離黑暗的權勢，把我們遷到祂愛子的國裏。",
+        "prayerText": [
+            "親愛的主耶穌，感謝祢道成肉身來到我們中間，賜下盼望，讓我們可以出黑暗入光明，不再作罪的奴僕",
+            "唯有耶穌祢是明亮晨星，願祢照亮我的心，我的家庭，我所屬的班，讓我們因祢得着真正的喜樂和自由",
+            "主我們要尊榮祢，祢是充滿榮耀美麗的主，我要更多愛慕祢，高舉祢的名字"
+        ],
+        "bgImage": "",
+        "youtubeUrl": "https://www.youtube.com/watch?v=t9AVyCkcD3A&list=RDt9AVyCkcD3A&start_radio=1"
+    },
+    {
+        "title": "豐盛的應許",
+        "artist": "讚美之泉",
+        "theme": "信靠",
+        "scriptureRef": "哥林多後書1:20",
+        "scriptureText": "神的應許，不論有多少，在基督都是是的。所以藉著他也都是實在（實在：原文是阿們）的，叫神因我們得榮耀。",
+        "prayerText": [
+            "主我要抬頭仰望祢，願祢光照我，讓我知道祢的心意，讓我從祢支取力量跟隨祢",
+            "主願祢保守我的心專一愛祢，不被世界的價值觀動搖，讓我將祢的話語藏在心裡，耐心等候祢成就祢的旨意",
+            "求神的旨意行在地上，如同行在天上，願祢的心意也運行在我的生命中"
+        ],
+        "bgImage": "",
+        "youtubeUrl": "https://www.youtube.com/watch?v=ZNSG2CG5DNQ&list=RDZNSG2CG5DNQ&start_radio=1"
+    },
+    {
+        "title": "Seven Times A Day",
+        "artist": "Integrity Kids",
+        "theme": "讚美",
+        "scriptureRef": "詩篇 92:1-2",
+        "scriptureText": "稱謝耶和華，歌頌祢至高者的名！早晨傳揚祢的慈愛，每夜傳揚祢的信實，這本是美好的事",
+        "prayerText": [
+            "主我要天天讚美祢，讚美祢的話必常常在我口中，我要天天述說祢奇妙的作為",
+            "主祢的恩典每天都是新的，我要倚靠祢作祢喜悅的孩子"
+        ],
+        "bgImage": "",
+        "youtubeUrl": "https://www.youtube.com/watch?v=_-TvDfNg9P4&list=RD_-TvDfNg9P4&start_radio=1"
+    },
+    {
+        "title": "祢專屬的花園",
+        "artist": "Nikki Dunn",
+        "theme": "愛慕",
+        "scriptureRef": "哥林多前書 6:19-20",
+        "scriptureText": "豈不知你們的身子就是聖靈的殿嗎？這聖靈是從神來的，住在你們裏面；並且你們不是自己的人，因為你們是重價買來的。所以，要在你們的身子上榮耀神。",
+        "prayerText": [
+            "神感謝祢愛我，願我的心麥一回應祢的愛，天天盡心盡性盡意盡力來到祢跟前，讓祢的心得滿足",
+            "主我願為祢保守自己的心，不讓世界的人和事佔據我的心，我願單單屬於祢"
+        ],
+        "bgImage": "",
+        "youtubeUrl": "https://www.youtube.com/watch?v=njRvqtnBnro&list=RDnjRvqtnBnro&start_radio=1&rv=_-TvDfNg9P4"
+    },
+    {
+        "title": "All My Worship",
+        "artist": "Saddleback Worship",
+        "theme": "獻上",
+        "scriptureRef": "詩篇 86:12",
+        "scriptureText": "主—我的神啊，我要一心稱讚祢；我要榮耀祢的名，直到永遠！",
+        "prayerText": [
+            "神唯有祢配得一切敬拜，我要放下一切重擔，撇低一切綑鎖單單來到祢跟前，認定祢是我的神",
+            "主願祢的話語喚醒我的心，讓我不再在乎世間的看法，只在乎祢對我的心意，願我的生命被祢完全得着",
+            "主求祢賜我勇氣衝開一切攔阻，為要親眼看見祢，親耳聽見祢，觸摸到祢"
+        ],
+        "bgImage": "",
+        "youtubeUrl": "https://www.youtube.com/watch?v=OlX5qFp18jA&list=RDOlX5qFp18jA&start_radio=1"
+    },
+    {
+        "title": "相信",
+        "artist": "約書亞樂團",
+        "theme": "等候",
+        "scriptureRef": "馬可福音 11:24",
+        "scriptureText": "所以我告訴你們，凡你們禱告祈求的，無論是什麼，只要信是得著的，就必得著。",
+        "prayerText": [
+            "神願祢開我的眼睛，看見祢的恩手引領我，賜我信心踏出安舒區去跟隨祢",
+            "主求祢光照我的生命，叫我不再動搖，願祢來更新我，我願降服在祢跟前",
+            "神我呼求祢，願祢進到我內心深處，醫治我，翻轉我的生命，我知道不論高山低谷祢仍是愛我的主"
+        ],
+        "bgImage": "",
+        "youtubeUrl": "https://www.youtube.com/watch?v=bALXQEtDsxA&list=RDbALXQEtDsxA&start_radio=1"
+    },
+    {
+        "title": "榮美的救主",
+        "artist": "約書亞樂團",
+        "theme": "讚美",
+        "scriptureRef": "約翰福音 1:14",
+        "scriptureText": "道成了肉身，住在我們中間，充充滿滿地有恩典有真理。我們也見過祂的榮光，正是父獨生子的榮光。",
+        "prayerText": [
+            "讚美主，祢是滿有大能的神，謝謝祢施行拯救，賜恩予萬民",
+            "讚美主祢是奇妙的主，感謝祢在十字架流出寶血，洗淨我們的罪，賜給我們永恆的盼望",
+            "求祢賜我敬畏祢的心，我在各樣所行的事上都依靠祢，作討祢喜悅的決定"
+        ],
+        "bgImage": "",
+        "youtubeUrl": "https://www.youtube.com/watch?v=ZPVChPb5J7Q&list=RDZPVChPb5J7Q&start_radio=1"
+    },
+    {
+        "title": "耶穌唯有祢",
+        "artist": "約書亞樂團",
+        "theme": "宣告",
+        "scriptureRef": "詩篇73:25",
+        "scriptureText": "除祢以外，在天上我有誰呢？除祢以外，在地上我也沒有所愛慕的。",
+        "prayerText": [
+            "親愛的天父，感謝祢每天照顧我，祢是我的供應，我在祢裡面必不缺乏",
+            "感謝主與我同在，我軟弱時要倚靠祢，求祢來平靜我內心的風浪，作我堅固的避難所",
+            "主耶穌，求祢赦免我的罪，教我按祢的心意而行，單單尊祢為大"
+        ],
+        "bgImage": "",
+        "youtubeUrl": "https://www.youtube.com/watch?v=M8F2iajcyJk&list=RDM8F2iajcyJk&start_radio=1"
+    },
+    {
+        "title": "因祢十架",
+        "artist": "約書亞樂團",
+        "theme": "宣告",
+        "scriptureRef": "以弗所書 1:7",
+        "scriptureText": "我們藉這愛子的血得蒙救贖，過犯得赦免，乃是照祂豐富的恩典。",
+        "prayerText": [
+            "親愛的主耶穌，感謝祢背負我的罪，洗掙我一切不義，恢復我與天父的關係，讓我有永活的盼望",
+            "讚美祢，祢是奇妙的神，求祢來醫治我的身心靈，讓我從新得着盼望和力量",
+            "主我願獻上我的生命，求祢使用我，讓我見證祢的救贖是何等奇妙"
+        ],
+        "bgImage": "",
+        "youtubeUrl": "https://www.youtube.com/watch?v=xMavEHAhpeI&list=RDxMavEHAhpeI&start_radio=1"
+    },
+    {
+        "title": "Firm Foundation",
+        "artist": "Cody Carnes",
+        "theme": "宣告",
+        "scriptureRef": "詩篇 62:1-2",
+        "scriptureText": "我的心默默無聲，專等候神；我的拯救是從祂而來。唯獨祂是我的磐石，我的拯救；祂是我的高台，我必不很搖動。",
+        "prayerText": [
+            "耶穌祢是我堅固的磐石，祢永不改變，我要投靠祢，願祢堅固我的心，讓我不致動搖",
+            "當我面對困難挑戰時，願主祢成為我的力量和喜樂，讓我不聚焦於環境，我要仰望掌管天地萬物的祢",
+            "主祢是我的藏身處，願祢的慈聲安慰我，成為我的平安"
+        ],
+        "bgImage": "",
+        "youtubeUrl": "https://www.youtube.com/watch?v=x9ndiD0_qNk&list=RDx9ndiD0_qNk&start_radio=1"
+    },
+    {
+        "title": "Build My Life",
+        "artist": "Pat Barrett",
+        "theme": "宣告",
+        "scriptureRef": "撒母耳記上 2:2",
+        "scriptureText": "只有耶和華為聖；除祂以外沒有別的，也沒有磐石像我們的神。",
+        "prayerText": [
+            "神啊，我活着就要歌頌祢，祢配得所有讚美，我一息尚存都要敬拜祢",
+            "感謝主，祢是獨一的神，無人像祢！求祢打開我的眼睛，讓我看見祢的榮美，讓我驚嘆祢的所是",
+            "求祢的愛時常激勵我，我的生命要建造在祢的話語上，求祢叫我的心愛慕真理，好讓我能在世上分別出來，作神祢忠心的僕人"
+        ],
+        "bgImage": "",
+        "youtubeUrl": "https://www.youtube.com/watch?v=QZW4_8_zCBE&list=RDQZW4_8_zCBE&start_radio=1"
+    },
+    {
+        "title": "Yes and Amen",
+        "artist": "Jesus Culture",
+        "theme": "宣告",
+        "scriptureRef": "哥林多後書 1:20",
+        "scriptureText": "神的應許，不論有多少，在基督裏都是是的。所以藉著祂也是阿們的，叫神因我們得榮耀。",
+        "prayerText": [
+            "親愛的上帝，祢是信實不變的主，祢口所出的話全都是真實，我要憑信領受祢的應許",
+            "主求祢幫助我靠着祢的大能大力掙脫罪惡的枷鎖，讓我在真理裡得着自由和滿足，我呼求祢，祢必幫助我",
+            "求神加添我的信心，相信祢是行奇事的神，求祢叫我耐心等候祢，祢必伸手為我爭戰"
+        ],
+        "bgImage": "",
+        "youtubeUrl": "https://www.youtube.com/watch?v=ZuZ7PeN1TQ0&list=RDZuZ7PeN1TQ0&start_radio=1"
+    },
+    {
+        "title": "我要全心讚美",
+        "artist": "讚美之泉",
+        "theme": "讚美",
+        "scriptureRef": "詩篇 9:1-2",
+        "scriptureText": "我要一心稱謝耶和華；我要傳揚祢一切奇妙的作為。我要因祢歡喜快樂；至高者啊，我要歌頌祢的名！",
+        "prayerText": [
+            "讚美主，凡有氣息都要來讚美祢，我要到祢跟前獻上頌讚，因為祢是我喜樂的泉源，是我的力量，我的盼望在於祢",
+            "主我將憂慮卸給祢，願祢賜我自由，讓我可以全心敬拜祢，將祢當得的榮耀都歸給祢",
+            "求神賜我感恩的心，天天數算神的恩典，發現神的美善"
+        ],
+        "bgImage": "",
+        "youtubeUrl": "https://www.youtube.com/watch?v=Bs-pQZ9b0OU&list=RDBs-pQZ9b0OU&start_radio=1"
+    },
+    {
+        "title": "喜樂泉源",
+        "artist": "讚美之泉",
+        "theme": "讚美",
+        "scriptureRef": "詩篇 43:4",
+        "scriptureText": "我就往神的祭壇，到我最喜樂的神那裏。神啊，我的神，我要彈琴稱讚祢",
+        "prayerText": [
+            "親愛的主，感謝祢的寶血洗淨我的罪，醫治我的破碎，使我生命得以翻轉",
+            "主願我時常仰望祢，在得時不得時都定睛於祢，得着世界不能動搖的喜樂滿足",
+            "神祢是我一生的依靠，唯有祢從不改變，祢必在我身旁與我一起走過高山低谷，願祢來掌管我生命每一處"
+        ],
+        "bgImage": "",
+        "youtubeUrl": "https://www.youtube.com/watch?v=iCY_YB1jouY&list=RDiCY_YB1jouY&start_radio=1"
+    },
+    {
+        "title": "This is the Day",
+        "artist": "Lakewood Music",
+        "theme": "讚美",
+        "scriptureRef": "詩篇118:24",
+        "scriptureText": "這是耶和華所定的日子，我們在其中要高興歡喜。",
+        "prayerText": [
+            "讚美主！祢是我的喜樂，我們要因着祢歡喜快樂，到祢的壇前敬拜祢，將榮耀歸予祢",
+            "主祢是滿有恩典憐憫的神，求祢更新我的心，讓我忘記背後，努力面前的，叫我抓緊今天回應祢的吩咐",
+            "主願祢賜我敏銳的靈，我期待祢在我生命中行新事，我期待今天經歷祢！"
+        ],
+        "bgImage": "",
+        "youtubeUrl": "https://www.youtube.com/watch?v=LiyM59mV8cA&list=RDLiyM59mV8cA&start_radio=1"
+    },
+    {
+        "title": "Turn It Up",
+        "artist": "Planetshakers",
+        "theme": "讚美",
+        "scriptureRef": "詩篇 98:2-4",
+        "scriptureText": "耶和華顯明了他的救恩，在列國眼前顯出公義；記念他對以色列家的慈愛和信實。地的四極都看見我們神的救恩。全地當向耶和華歡呼，要發聲歡唱，要歌頌！",
+        "prayerText": [
+            "主我要敞開我的心迎接祢，開口頌讚祢，高舉祢的名字，因為祢是真實的神，祢今天就在我們當中",
+            "願祢來重整我的生命，我將一切憂慮和疑問都交在祢手中，願祢使我的心歡愉",
+            "願祢的恩雨降下，滋潤我的生命，讓我對祢有新的發現，讓我在祢的話語中找到亮光，求祢引導我"
+        ],
+        "bgImage": "",
+        "youtubeUrl": "https://www.youtube.com/watch?v=4G4RpjgbxXk&list=RD4G4RpjgbxXk&start_radio=1"
+    },
+    {
+        "title": "Ever Be",
+        "artist": "Bethel Music",
+        "theme": "宣告",
+        "scriptureRef": "詩篇 34:1, 3",
+        "scriptureText": "我要時時稱頌耶和華；讚美祂的話必常在我口中。你們要和我一同尊耶和華為大，讓我們一同高舉他的名。",
+        "prayerText": [
+            "我讚美祢，祢的慈愛永不止息，祢的信實永不改變，我要天天歌頌祢",
+            "親愛的天父，我讚美祢的恩慈良善，祢是我的力量，又在我軟弱時扶持我，讓我重新記得自己擁有祢賜的尊貴身份"
+        ],
+        "bgImage": "",
+        "youtubeUrl": "https://www.youtube.com/watch?v=BhasSpSBdEE&list=RDBhasSpSBdEE&start_radio=1"
+    },
+    {
+        "title": "Your Love Never Fails",
+        "artist": "Jesus Culture",
+        "theme": "宣告",
+        "scriptureRef": "耶利米哀歌 3:22-23",
+        "scriptureText": "我們不致消滅，是出於耶和華諸般的慈愛；是因祂的憐憫不致斷絕。每早晨，這都是新的；祢的信實極其廣大！",
+        "prayerText": [
+            "親愛的上帝，讚美祢的慈愛永不止息，祢的恩典每天都是新的，我要向祢呼求，祢必側耳垂聽",
+            "感謝主昨日、今日、一直到永遠，是一樣的，願我的心不致動搖，單單相信祢的應許",
+            "主祢叫萬事互相效力，叫愛神的人得益處，我要相信祢有美好的計劃，願我全心倚靠祢，按祢心意而行"
+        ],
+        "bgImage": "",
+        "youtubeUrl": "https://www.youtube.com/watch?v=S0qG35huUP0&list=RDS0qG35huUP0&start_radio=1"
+    },
+    {
+        "title": "One Thing Remains",
+        "artist": "Jesus Culture",
+        "theme": "宣告",
+        "scriptureRef": "詩篇 117:2",
+        "scriptureText": "因為祂向我們大施慈愛，耶和華的誠實存到永遠。你們要讚美耶和華！",
+        "prayerText": [
+            "主我感謝祢，因祢比這世界都大，我因着祢剛強壯膽，站立得穩",
+            "主我讚美祢的慈愛，我要天天到祢跟前認定祢是愛的源頭，願我的心在祢裡面滿足",
+            "誰也不能使我與祢的愛隔絕，求祢堅固我的心，我是屬祢的兒女，祢已稱我為公義！"
+        ],
+        "bgImage": "",
+        "youtubeUrl": "https://www.youtube.com/watch?v=SCN4dgCUVew&list=RDSCN4dgCUVew&start_radio=1"
+    },
+    {
+        "title": "奇妙恩典",
+        "artist": "約書亞樂團",
+        "theme": "感謝",
+        "scriptureRef": "提摩太後書 4:18",
+        "scriptureText": "主必救我脫離一切的兇惡，也必救我進祂的天國。願榮耀歸給祂，直到永永遠遠。阿們！",
+        "prayerText": [
+            "親愛的主耶穌，感謝祢尋找我，賜下恩典憐憫，赦免我的罪，以祢永遠的愛愛我",
+            "主願我的心不愛慕世界，求祢吸引我看見祢裡面的豐盛，我的一切需要祢都知道，我要投靠祢",
+            "主祢是何等奇妙，祢賜下的超我所想所求，感謝祢讓我認識祢"
+        ],
+        "bgImage": "",
+        "youtubeUrl": "https://www.youtube.com/watch?v=3U1nZSpNbPM&list=RD3U1nZSpNbPM&start_radio=1"
+    },
+    {
+        "title": "詩篇63篇",
+        "artist": "GMS Live / TC真道教會",
+        "theme": "宣告",
+        "scriptureRef": "詩篇63:2-4",
+        "scriptureText": "我在聖所中曾如此瞻仰你，為要見你的能力和你的榮耀。因你的慈愛比生命更好，我的嘴唇要頌讚你。我還活著的時候要這樣稱頌你，我要奉你的名舉手。",
+        "prayerText": [
+            "親愛的主耶穌，我的心切慕祢，在乾旱疲乏之地我要尋求祢，我耐心等候祢，願祢來澆灌我的心靈",
+            "天父願祢開我的眼晴，讓我被祢的榮美吸引，叫我全心切慕祢的豐盛慈愛",
+            "主當我嚐過祢恩典的滋味，我就不再回頭，我要全然獻上自己，我要天天親近祢，瞻仰祢的榮美，開口讚美祢！"
+        ],
+        "bgImage": "",
+        "youtubeUrl": "https://www.youtube.com/watch?v=WNzXPoFLwcU&list=RDWNzXPoFLwcU&start_radio=1"
+    },
+    {
+        "title": "一生跟隨祢",
+        "artist": "約書亞樂團",
+        "theme": "宣告",
+        "scriptureRef": "羅馬書 14:8",
+        "scriptureText": "我們若活著，是為主而活；若死了，是為主而死。所以，我們或活或死總是主的人。",
+        "prayerText": [
+            "愛我的主，感謝祢先愛我，讓我明白何謂愛，願祢吸引我的心專一跟隨祢，將最好的都獻給祢，因為祢配得我的所有",
+            "主祢是我腳前的燈，路上的光，願我全心相信祢的帶領，每一步都與祢同行",
+            "主求祢潔淨我，煉淨我的心，使我更有祢的樣式。願我天天親近祢，我就更明白祢的旨意"
+        ],
+        "bgImage": "",
+        "youtubeUrl": "https://www.youtube.com/watch?v=QREPLcsOyWU&list=RDPCAw5pJIbi8&index=4"
+    },
+    {
+        "title": "我唯一喝望",
+        "artist": "約書亞樂團",
+        "theme": "信靠",
+        "scriptureRef": "詩篇63:1, 8",
+        "scriptureText": "神啊，你是我的神，我要切切尋求你；在乾旱疲乏無水之地，我的心靈渴想你，我的肉身切慕你。我心緊緊地跟隨祢；祢的右手扶持我。",
+        "prayerText": [
+            "主祢是黑暗中的亮光，願祢來照亮我的生命，煉淨我的生命更像祢",
+            "主求祢教我盡心盡性盡意盡力去愛祢，越過一切攔阻都要回應祢的愛，求祢賜我堅定的心志",
+            "我將一切憂慮和恐懼都交在祢手中，主祢知道我的每一個心思意念，願祢來扶持我，使我在祢裡面剛強起來，祢是我的倚靠，我全心仰望祢！"
+        ],
+        "bgImage": "",
+        "youtubeUrl": "https://www.youtube.com/watch?v=piSIrhDMJt4&list=RDPCAw5pJIbi8&index=8"
+    },
+    {
+        "title": "更深認識祢",
+        "artist": "約書亞樂團",
+        "theme": "愛慕",
+        "scriptureRef": "腓立比書3:8",
+        "scriptureText": "不但如此，我也將萬事當作有損的，因我以認識我主基督耶穌為至寶。我為祂已經丟棄萬事，看作糞土，為要得著基督。",
+        "prayerText": [
+            "親愛的天父，每當我仰望祢，願祢光照我的生命，讓我知道祢的心意，賜我力量行在其中",
+            "求主賜下更大的愛慕，讓我更深認識祢，更深經歷神祢的同在，讓我更羨慕渴想與祢親近"
+        ],
+        "bgImage": "",
+        "youtubeUrl": "https://www.youtube.com/watch?v=M1M-yZzOP9E&list=RDM1M-yZzOP9E&start_radio=1"
+    },
+    {
+        "title": "一顆謙卑的心",
+        "artist": "611 靈糧堂",
+        "theme": "渴慕",
+        "scriptureRef": "詩篇 139:23-24",
+        "scriptureText": "神啊，求祢鑒察我，知道我的心思；試煉我，知道我的意念；看在我裏面有什麼惡行沒有，引導我走永生的道路。",
+        "prayerText": [
+            "親愛的天父，求祢賜我一顆謙卑的心去認識祢更多，一顆柔軟的心去領受祢的心意，求祢除去石心，賜下新心去跟隨祢",
+            "憐憫的主，願祢更新我，讓我不再倚靠自己，求祢讓我在禱告更深經歷祢是聽禱告，又回應我的主！"
+        ],
+        "bgImage": "",
+        "youtubeUrl": "https://www.youtube.com/watch?v=xOZOtq2CIn0&list=RDxOZOtq2CIn0&start_radio=1"
+    },
+    {
+        "title": "全能上帝是我的主我的神",
+        "artist": "以斯拉事奉中心",
+        "theme": "信靠",
+        "scriptureRef": "耶利米書 32:17",
+        "scriptureText": "主耶和華啊，祢曾用大能和伸出來的膀臂創造天地，在祢沒有難成的事。",
+        "prayerText": [
+            "全能的父上帝，祢是掌管萬物的主，一切都在祢的手中，求祢加添我的信心，讓我相信祢有最美好的計劃",
+            "主求祢開我的眼晴，看見在祢裡面的盼望，讓我不着眼於困難，叫我能靠着祢的恩典跨過",
+            "天父祢是我信心的來源，我要相信祢在祢凡事都能，求祢幫助我衝破既有框框，不再限制祢的作為！"
+        ],
+        "bgImage": "",
+        "youtubeUrl": "https://www.youtube.com/watch?v=0bs-bKwD3A8&list=RD0bs-bKwD3A8&start_radio=1"
+    },
+    {
+        "title": "在祢呼召之地",
+        "artist": "以斯拉事奉中心",
+        "theme": "堅持",
+        "scriptureRef": "羅馬書 12:1",
+        "scriptureText": "所以，弟兄們，我以神的慈悲勸你們，將身體獻上，當作活祭，是聖潔的，是神所喜悅的；你們如此事奉乃是理所當然的。",
+        "prayerText": [
+            "親愛的聖靈，感謝祢內住在我們當中，教導我們耶穌的心意，求祢啟示我們神的心意，又賜下平安讓我們的心得以安敞在神裡",
+            "親愛的神願祢的真理光照我們的心，讓我們真知道祢的心意，能在祢賜給我們的崗位上盡忠，願祢幫助我們不看困難，只仰望祢的恩典"
+        ],
+        "bgImage": "",
+        "youtubeUrl": "https://www.youtube.com/watch?v=8o5Lp2fOfgE&list=RD8o5Lp2fOfgE&start_radio=1"
+    },
+    {
+        "title": "我們歡迎君王降臨",
+        "artist": "讚美之泉",
+        "theme": "信靠",
+        "scriptureRef": "撒迦利亞書 9:9",
+        "scriptureText": "錫安的民哪，應當大大歡喜；耶路撒冷的民哪，應當歡呼。看哪，你的王來到你這裡！祂是公義的，並且施行拯救。",
+        "prayerText": [
+            "我們所愛戴的君王，讚美祢是掌管萬有的神，我們要俯伏在祢的面前，歡迎祢來到我們當中更新我們",
+            "親愛的神，願祢降下恩雨，滋潤我們的生命，復興我們對祢的愛，讓我們全心擺上"
+        ],
+        "bgImage": "",
+        "youtubeUrl": "https://www.youtube.com/watch?v=kp0nbIAnhn0&list=RDkp0nbIAnhn0&start_radio=1"
     }
 ];
