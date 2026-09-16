@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ICQM詩歌資料庫</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Huninn&display=swap" rel="stylesheet">
     <!-- 引入同資料夾內的詩歌資料檔 -->
 <script>
   document.write('<script src="songs.js?v=' + Date.now() + '"><\/script>');
@@ -33,6 +36,69 @@ header h1{font-family:"Noto Serif TC","PMingLiU",serif;font-size:clamp(36px,4vw,
 @media(max-width:640px){body{padding:0 20px 26px}.site-top{padding:20px 0}.site-top p{display:none}header{padding:34px 0 27px}header h1{font-size:36px;letter-spacing:3px}header>p{font-size:13px;letter-spacing:.7px}.eyebrow{font-size:10px;margin-bottom:13px}.search-bar{height:56px;font-size:13px;padding-left:46px}.search-icon{left:17px}.clear-search{top:7px}.search-wrap{margin-bottom:21px}.category-tags{gap:7px}.tag-btn{padding:8px 11px;font-size:12px;gap:7px}.controls{margin-bottom:24px}.results-bar{padding:20px 0 16px}.song-grid{grid-template-columns:minmax(0,1fr);gap:15px}.song-card{padding:22px}.song-title{font-size:20px}.scripture-box{min-height:0}.card-actions{gap:10px}.prayer-modal-btn,.yt-btn{min-height:45px;font-size:13px}.page-footer{margin-top:30px;flex-direction:column;gap:4px}.modal-overlay{padding:12px}.modal-card{padding:46px 18px 22px;max-height:calc(100dvh - 24px);border-radius:12px}.modal-content-box{padding:21px;gap:19px}.modal-scripture-text{font-size:20px}.modal-body-text{font-size:14px}.modal-song-title{margin-bottom:18px}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important}}
 
+
+/* Rounded headings and larger desktop typography. */
+:root { --rounded-font: "Huninn", "Microsoft JhengHei", sans-serif; }
+body { font-size: 17px; }
+.school-name { font-family: var(--rounded-font); font-size: 34px; font-weight: 400; letter-spacing: 2px; line-height: 1.3; }
+.school-name span { font-size: 29px; }
+.site-top p { font-size: 13px; }
+header { padding: 36px 0 30px; }
+header h1 { font-family: var(--rounded-font); font-size: clamp(44px, 4vw, 58px); font-weight: 400; letter-spacing: 3px; }
+header > p { font-size: 19px; }
+.eyebrow { font-size: 14px; }
+.search-bar { font-size: 18px; height: 64px; }
+.clear-search { top: 11px; }
+.filter-heading { font-size: 16px; }
+.tag-btn { font-size: 16px; padding: 10px 15px; }
+.category-count { font-size: 14px; }
+.results-bar h2 { font-family: var(--rounded-font); font-size: 24px; font-weight: 400; }
+.result-count { font-size: 16px; }
+.song-title { font-family: var(--rounded-font); font-size: 26px; font-weight: 400; line-height: 1.5; }
+.song-artist { font-size: 16px; min-height: 26px; }
+.theme-badge { font-size: 14px; }
+.scripture-ref { font-size: 15px; }
+.scripture-text { font-size: 18px; line-height: 1.8; }
+.scripture-box { min-height: 155px; padding: 15px; }
+.prayer-modal-btn, .yt-btn { font-size: 16px; min-height: 48px; padding: 10px 12px; }
+.video-icon { font-size: 12px; }
+.yt-btn[aria-disabled] { font-size: 14px; }
+.page-footer { font-size: 14px; }
+.modal-card { max-width: 760px; }
+.modal-song-title { font-family: var(--rounded-font); font-size: 22px; font-weight: 400; }
+.modal-scripture-text { font-family: inherit; font-size: 26px; line-height: 1.8; font-weight: 400; }
+.modal-scripture-ref { font-size: 17px; }
+.modal-title { font-family: var(--rounded-font); font-size: 22px; font-weight: 400; }
+.modal-body-text { font-size: 19px; line-height: 1.9; }
+@media (max-width: 1100px) and (min-width: 641px) {
+    .song-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 640px) {
+    .school-name { font-size: 28px; }
+    .school-name span { font-size: 24px; }
+    header { padding: 30px 0 26px; }
+    header h1 { font-size: 40px; letter-spacing: 2px; }
+    header > p { font-size: 16px; }
+    .eyebrow { font-size: 12px; }
+    .search-bar { font-size: 16px; height: 58px; padding-right: 48px; }
+    .clear-search { top: 8px; }
+    .filter-heading { font-size: 14px; }
+    .tag-btn { font-size: 14px; padding: 9px 11px; }
+    .category-count { font-size: 12px; }
+    .results-bar h2 { font-size: 22px; }
+    .result-count { font-size: 14px; }
+    .song-title { font-size: 24px; }
+    .song-artist { font-size: 15px; }
+    .scripture-text { font-size: 17px; }
+    .scripture-ref { font-size: 14px; }
+    .scripture-box { min-height: 0; }
+    .prayer-modal-btn, .yt-btn { font-size: 15px; }
+    .page-footer { font-size: 12px; }
+    .modal-song-title { font-size: 20px; }
+    .modal-scripture-text { font-size: 21px; }
+    .modal-scripture-ref { font-size: 15px; }
+    .modal-body-text { font-size: 17px; }
+}
     </style>
 </head>
 <body>
