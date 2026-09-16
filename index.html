@@ -397,115 +397,154 @@
         let currentCategory = '全部';
         let searchQuery = '';
 
+        const text = value => value == null ? '' : String(value);
+
+        function safeYouTubeUrl(value) {
+            try {
+                const url = new URL(text(value));
+                const hosts = ['youtube.com', 'www.youtube.com', 'm.youtube.com', 'music.youtube.com', 'youtu.be'];
+                return url.protocol === 'https:' && hosts.includes(url.hostname) &&
+                    !url.username && !url.password && !url.port ? url.href : '';
+            } catch {
+                return '';
+            }
+        }
+
+        function renderCategories() {
+            const container = document.getElementById('categoryTags');
+            const labels = new Map(Array.from(container.querySelectorAll('[data-category]'),
+                button => [button.dataset.category, button.textContent]));
+            labels.set('救恩', '救恩 Salvation');
+            const themes = new Set(songDatabase.map(song => text(song.theme)).filter(Boolean));
+            const categories = ['全部', ...Array.from(labels.keys()).filter(theme =>
+                theme !== '全部' && themes.has(theme)), ...Array.from(themes).filter(theme =>
+                theme !== '全部' && !labels.has(theme))];
+            container.replaceChildren();
+            categories.forEach(category => {
+                const button = document.createElement('button');
+                button.type = 'button';
+                button.className = 'tag-btn' + (category === currentCategory ? ' active' : '');
+                button.dataset.category = category;
+                button.textContent = labels.get(category) || category;
+                button.setAttribute('aria-pressed', String(category === currentCategory));
+                button.addEventListener('click', () => filterCategory(category));
+                container.appendChild(button);
+            });
+        }
+
         window.addEventListener('DOMContentLoaded', () => {
+            if (typeof songDatabase !== 'undefined' && Array.isArray(songDatabase)) {
+                renderCategories();
+            }
             renderSongs();
         });
 
         function renderSongs() {
             const grid = document.getElementById('songGrid');
-            grid.innerHTML = '';
+            grid.replaceChildren();
 
             if (typeof songDatabase === 'undefined' || !Array.isArray(songDatabase)) {
-                grid.innerHTML = `<div class="no-results">❌ 找不到 songs.js 檔案，請確認兩檔案放在同一資料夾中。</div>`;
+                grid.innerHTML = '<div class="no-results">❌ 找不到 songs.js 檔案，請確認兩檔案放在同一資料夾中。</div>';
                 return;
             }
 
             const filteredSongs = songDatabase.filter(song => {
-                const title = song.title || '';
-                const artist = song.artist || '';
-                const theme = song.theme || '';
-                const scriptureRef = song.scriptureRef || '';
-                const scriptureText = song.scriptureText || '';
-
-                const matchesCategory = (currentCategory === '全部') || (theme === currentCategory);
-                const matchesSearch = title.includes(searchQuery) || 
-                                      artist.includes(searchQuery) || 
-                                      theme.includes(searchQuery) || 
-                                      scriptureRef.includes(searchQuery) ||
-                                      scriptureText.includes(searchQuery);
+                const matchesCategory = currentCategory === '全部' || text(song.theme) === currentCategory;
+                const matchesSearch = ['title', 'artist', 'theme', 'scriptureRef', 'scriptureText']
+                    .some(key => text(song[key]).includes(searchQuery));
                 return matchesCategory && matchesSearch;
             });
 
             if (filteredSongs.length === 0) {
-                grid.innerHTML = `<div class="no-results">目前沒有符合條件的詩歌 😅</div>`;
+                grid.innerHTML = '<div class="no-results">目前沒有符合條件的詩歌 😅</div>';
                 return;
             }
 
-            filteredSongs.forEach((song, index) => {
+            filteredSongs.forEach(song => {
                 const card = document.createElement('div');
                 card.className = 'song-card';
+                // Only fixed markup goes into innerHTML; spreadsheet values are plain text.
                 card.innerHTML = `
                     <div>
                         <div class="card-header">
-                            <div class="song-title">${song.title || '未命名詩歌'}</div>
-                            <div class="song-artist">${song.artist || ''}</div>
-                            <button class="prayer-modal-btn" onclick="openPrayerModal(${index})">
-                                🙏 禱告與經文圖卡
-                            </button>
+                            <div class="song-title"></div>
+                            <div class="song-artist"></div>
+                            <button type="button" class="prayer-modal-btn">🙏 禱告與經文圖卡</button>
                         </div>
-                        <span class="theme-badge">🏷️ ${song.theme || '未分類'}</span>
+                        <span class="theme-badge"></span>
                         <div class="scripture-box">
-                            <span class="scripture-ref">📖 ${song.scriptureRef || ''}</span>
-                            「${song.scriptureText || ''}」
+                            <span class="scripture-ref"></span>
+                            <span class="scripture-text"></span>
                         </div>
-                    </div>
-                    <a href="${song.youtubeUrl || '#'}" target="_blank" class="yt-btn">
-                        ▶ 在 YouTube 上觀看
-                    </a>
-                `;
+                    </div>`;
+                card.querySelector('.song-title').textContent = text(song.title) || '未命名詩歌';
+                card.querySelector('.song-artist').textContent = text(song.artist);
+                card.querySelector('.theme-badge').textContent = '🏷️ ' + (text(song.theme) || '未分類');
+                card.querySelector('.scripture-ref').textContent = '📖 ' + text(song.scriptureRef);
+                card.querySelector('.scripture-text').textContent = '「' + text(song.scriptureText) + '」';
+                // Keep the actual song, rather than its position in the filtered results.
+                card.querySelector('.prayer-modal-btn').addEventListener('click', () => openPrayerModal(song));
+
+                const url = safeYouTubeUrl(song.youtubeUrl);
+                const video = document.createElement(url ? 'a' : 'span');
+                video.className = 'yt-btn';
+                video.textContent = url ? '▶ 在 YouTube 上觀看' : '暫無有效 YouTube 連結';
+                if (url) {
+                    video.href = url;
+                    video.target = '_blank';
+                    video.rel = 'noopener noreferrer';
+                } else {
+                    video.setAttribute('aria-disabled', 'true');
+                }
+                card.appendChild(video);
                 grid.appendChild(card);
             });
         }
 
-        /* -----------------------------------
-           彈出視窗 (Modal) 控制邏輯
-        ----------------------------------- */
-        function openPrayerModal(index) {
-            const song = songDatabase[index];
+        function openPrayerModal(song) {
             if (!song) return;
-
             const modal = document.getElementById('prayerModal');
             const modalCard = document.getElementById('modalCard');
             const contentBox = document.getElementById('modalContentBox');
-
-            // 設定背景圖片 (若有指定圖片則替換，沒有就使用預設的質感暖色背景)
-            if (song.bgImage && song.bgImage.trim() !== '') {
-                modalCard.style.backgroundImage = `url('${song.bgImage}')`;
-            } else {
-                modalCard.style.backgroundImage = "radial-gradient(circle at 10% 20%, #ffedd5 0%, #fed7aa 90%)";
+            modalCard.style.backgroundImage = 'radial-gradient(circle at 10% 20%, #ffedd5 0%, #fed7aa 90%)';
+            if (song.bgImage) {
+                try {
+                    const url = new URL(text(song.bgImage), document.baseURI);
+                    if (url.protocol === 'https:' && !url.username && !url.password) {
+                        modalCard.style.backgroundImage = 'url(' + JSON.stringify(url.href) + ')';
+                    }
+                } catch { /* Keep the default background for invalid URLs. */ }
             }
+            contentBox.replaceChildren();
 
-            let htmlContent = '';
-
-            // 1. 顯示聖經經文內文 + 出處
             if (song.scriptureText || song.scriptureRef) {
-                htmlContent += `
-                    <div>
-                        <div class="modal-scripture-text">「${song.scriptureText || ''}」</div>
-                        <div class="modal-scripture-ref">—— ${song.scriptureRef || ''}</div>
-                    </div>
-                `;
+                const scripture = document.createElement('div');
+                const verse = document.createElement('div');
+                verse.className = 'modal-scripture-text';
+                verse.textContent = '「' + text(song.scriptureText) + '」';
+                const ref = document.createElement('div');
+                ref.className = 'modal-scripture-ref';
+                ref.textContent = '—— ' + text(song.scriptureRef);
+                scripture.append(verse, ref);
+                contentBox.appendChild(scripture);
             }
 
-            // 2. 若有禱告詞，加入分隔線與禱告列表
-            if (song.prayerText && song.prayerText.length > 0) {
-                if (song.scriptureText) {
-                    htmlContent += `<div class="modal-divider"></div>`;
+            if (Array.isArray(song.prayerText) && song.prayerText.length > 0) {
+                if (song.scriptureText || song.scriptureRef) {
+                    const divider = document.createElement('div');
+                    divider.className = 'modal-divider';
+                    contentBox.appendChild(divider);
                 }
-                
-                htmlContent += `
-                    <div>
-                        <div class="modal-title">禱告</div>
-                        <div class="modal-body-text">
-                            <ul>
-                                ${song.prayerText.map(line => `<li>${line}</li>`).join('')}
-                            </ul>
-                        </div>
-                    </div>
-                `;
+                const prayer = document.createElement('div');
+                prayer.innerHTML = '<div class="modal-title">禱告</div><div class="modal-body-text"><ul></ul></div>';
+                const list = prayer.querySelector('ul');
+                song.prayerText.forEach(line => {
+                    const item = document.createElement('li');
+                    item.textContent = text(line);
+                    list.appendChild(item);
+                });
+                contentBox.appendChild(prayer);
             }
-
-            contentBox.innerHTML = htmlContent;
             modal.style.display = 'flex';
         }
 
@@ -513,29 +552,22 @@
             document.getElementById('prayerModal').style.display = 'none';
         }
 
-        function closeModalOnOuterClick(e) {
-            if (e.target.id === 'prayerModal') {
-                closePrayerModal();
-            }
+        function closeModalOnOuterClick(event) {
+            if (event.target.id === 'prayerModal') closePrayerModal();
         }
 
         function filterCategory(category) {
             currentCategory = category;
-            
-            const buttons = document.querySelectorAll('.tag-btn');
-            buttons.forEach(btn => {
-                if (btn.getAttribute('data-category') === category) {
-                    btn.classList.add('active');
-                } else {
-                    btn.classList.remove('active');
-                }
+            document.querySelectorAll('.tag-btn').forEach(button => {
+                const active = button.dataset.category === category;
+                button.classList.toggle('active', active);
+                button.setAttribute('aria-pressed', String(active));
             });
-
             renderSongs();
         }
 
-        document.getElementById('searchInput').addEventListener('input', (e) => {
-            searchQuery = e.target.value.trim();
+        document.getElementById('searchInput').addEventListener('input', event => {
+            searchQuery = event.target.value.trim();
             renderSongs();
         });
     </script>
