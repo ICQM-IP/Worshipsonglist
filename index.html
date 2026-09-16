@@ -3,383 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ICQM詩歌資料庫</title>
+    <title>ICQM 詩歌資料庫 · 主頁</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Huninn&display=swap" rel="stylesheet">
-    <!-- 引入同資料夾內的詩歌資料檔 -->
-<script>
-  document.write('<script src="songs.js?v=' + Date.now() + '"><\/script>');
-</script>
     <style>
-:root{--primary-color:#243b53;--primary-hover:#162b40;--bg-color:#f7f5f0;--card-bg:#fff;--text-main:#243b53;--text-sub:#66717a;--border-color:#e3e3dc;--gold:#9b7438}
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft JhengHei",sans-serif;background:var(--bg-color);color:var(--text-main);line-height:1.6;padding:0 40px 40px;max-width:1280px;margin:0 auto}
-button,input,a{-webkit-tap-highlight-color:transparent}button,input{font:inherit}button,a{touch-action:manipulation}
-button{cursor:pointer}button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #ae8849;outline-offset:4px}
-.site-top{display:flex;justify-content:space-between;align-items:center;padding:25px 0;border-bottom:1px solid var(--border-color);font-size:12px;letter-spacing:2px;color:var(--text-sub)}
-.school-name{font-weight:750;color:var(--primary-color);letter-spacing:1.5px}.school-name span{color:var(--gold);margin-right:10px}.site-top p{font-size:10px;letter-spacing:2.5px}
-header{padding:50px 0 38px;position:relative}.eyebrow{display:flex;align-items:center;gap:12px;font-size:11px;font-weight:700;letter-spacing:3px;color:var(--gold);margin-bottom:16px}.eyebrow:before{content:"";width:28px;height:1px;background:var(--gold)}
-header h1{font-family:"Noto Serif TC","PMingLiU",serif;font-size:clamp(36px,4vw,52px);font-weight:700;line-height:1.3;letter-spacing:5px;margin-bottom:15px}header>p{color:var(--text-sub);font-size:15px;letter-spacing:1.5px}
-.controls{margin-bottom:30px}.search-wrap{position:relative;max-width:760px;margin-bottom:26px}.search-icon{position:absolute;left:21px;top:50%;transform:translateY(-50%);width:18px;height:18px;color:var(--text-sub);pointer-events:none}
-.search-bar{width:100%;height:60px;border:1px solid #daddd8;border-radius:12px;padding:16px 52px;background:#fff;color:var(--text-main);font-size:15px;box-shadow:0 3px 10px #243b5303}.search-bar::placeholder{color:#818a8d}.search-bar:focus{border-color:var(--gold);outline:2px solid #b68a4530;outline-offset:0}.clear-search{position:absolute;right:9px;top:9px;width:42px;height:42px;border:0;background:transparent;color:var(--text-sub);border-radius:8px;font-size:22px}.clear-search:hover{background:#f3f3ee}.clear-search[hidden]{display:none}
-.filter-heading{font-size:12px;color:var(--text-sub);margin-bottom:11px;font-weight:600;letter-spacing:1px}.category-tags{display:flex;flex-wrap:wrap;gap:8px}.tag-btn{display:inline-flex;align-items:center;gap:9px;border:1px solid transparent;border-radius:7px;padding:9px 13px;background:#eeede7;color:#53616a;font-size:13px;transition:background .15s,color .15s}.tag-btn:hover{background:#e5e5dd}.tag-btn.active{background:var(--primary-color);color:white}.category-count{font-size:11px;opacity:.7;font-variant-numeric:tabular-nums}
-.results-bar{display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--border-color);padding:23px 0 20px;gap:16px}.results-bar h2{font-size:17px;font-weight:650;letter-spacing:1px}.result-count{font-size:12px;color:var(--text-sub)}
-.song-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}.song-card{background:var(--card-bg);border:1px solid #e4e6e0;border-radius:13px;padding:24px;display:flex;flex-direction:column;justify-content:space-between;min-width:0;transition:box-shadow .2s,border-color .2s}.song-card:hover{border-color:#c8cec6;box-shadow:0 8px 26px #243b5308}
-.card-header{margin-bottom:17px}.song-title{font-size:20px;font-weight:700;line-height:1.5;overflow-wrap:anywhere;margin-bottom:5px}.song-artist{font-size:12px;color:var(--text-sub);line-height:1.6;min-height:20px}.theme-badge{display:inline-block;font-size:11px;font-weight:550;color:#796538;background:#f5f0e3;border:1px solid #eee7d4;padding:3px 9px;border-radius:4px;margin-bottom:16px;letter-spacing:.5px}
-.scripture-box{background:#faf8f1;border-left:2px solid #c6a76b;border-radius:0 6px 6px 0;padding:13px 14px;min-height:120px;margin-bottom:22px}.scripture-ref{display:block;font-size:11px;color:#8c703f;font-weight:650;margin-bottom:7px;letter-spacing:.3px}.scripture-text{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;color:#5c6565;font-size:13px;line-height:1.85;overflow-wrap:anywhere}
-.card-actions{display:flex;gap:9px;margin-top:auto}.prayer-modal-btn,.yt-btn{display:inline-flex;justify-content:center;align-items:center;text-decoration:none;border-radius:7px;min-height:42px;padding:9px 12px;font-size:12px;font-weight:550;line-height:1.5;transition:background .15s;white-space:nowrap}.prayer-modal-btn{flex:1;background:var(--primary-color);border:1px solid var(--primary-color);color:white}.prayer-modal-btn:hover{background:var(--primary-hover)}.yt-btn{flex:0 1 auto;border:1px solid #dde1df;color:#52616a;background:white;gap:7px}.yt-btn:hover{background:#f6f7f4}.video-icon{color:#bf4743;font-size:10px}.yt-btn[aria-disabled]{white-space:normal;font-size:11px;color:#767e82}
-.no-results{grid-column:1/-1;text-align:center;padding:64px 20px;color:var(--text-sub);background:#ffffff80;border:1px dashed var(--border-color);border-radius:12px}.page-footer{border-top:1px solid var(--border-color);margin-top:46px;padding-top:22px;display:flex;justify-content:space-between;font-size:11px;color:#737b7f;gap:14px;letter-spacing:.7px}
-.modal-overlay{position:fixed;inset:0;background:#152b41b3;backdrop-filter:blur(5px);display:none;justify-content:center;align-items:center;z-index:1000;padding:24px}.modal-card{position:relative;width:100%;max-width:690px;max-height:calc(100dvh - 48px);overflow-y:auto;border-radius:17px;background-color:#faf6eb;background-size:cover;background-position:center;padding:42px;box-shadow:0 24px 90px #10253640;overscroll-behavior:contain}.close-btn{position:absolute;top:13px;right:13px;background:#ffffffb3;color:var(--text-main);border:1px solid #deded3;width:38px;height:38px;border-radius:50%;font-size:16px;display:flex;align-items:center;justify-content:center}.close-btn:hover{background:white}.modal-song-title{font-size:12px;letter-spacing:1px;color:#816b45;margin:0 36px 24px 0;font-weight:600}.modal-content-box{color:var(--text-main);background:#ffffffb8;border:1px solid #ffffffbd;border-radius:10px;padding:28px;display:flex;flex-direction:column;gap:23px}.modal-scripture-text{font-family:"Noto Serif TC","PMingLiU",serif;font-size:23px;font-weight:500;line-height:1.9;overflow-wrap:anywhere}.modal-scripture-ref{text-align:right;font-size:12px;font-weight:500;color:#7c704f;margin-top:15px}.modal-divider{height:1px;background:#dcd9c9;margin:2px 0}.modal-title{font-size:14px;font-weight:650;color:#8c703f;letter-spacing:3px;margin-bottom:13px}.modal-body-text{font-size:15px;line-height:1.95;color:#495967;overflow-wrap:anywhere}.modal-body-text ul{list-style:none}.modal-body-text li{position:relative;padding-left:17px;margin-bottom:13px}.modal-body-text li:last-child{margin-bottom:0}.modal-body-text li:before{content:"•";position:absolute;left:0;color:#a88648}
-@media(min-width:1000px){header:after{content:"♪";position:absolute;right:48px;top:20px;font-family:Georgia,serif;font-size:148px;font-weight:400;color:#e9e5d9;transform:rotate(-12deg);pointer-events:none}}
-@media(max-width:1000px){.song-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.song-card{padding:22px}}
-@media(max-width:640px){body{padding:0 20px 26px}.site-top{padding:20px 0}.site-top p{display:none}header{padding:34px 0 27px}header h1{font-size:36px;letter-spacing:3px}header>p{font-size:13px;letter-spacing:.7px}.eyebrow{font-size:10px;margin-bottom:13px}.search-bar{height:56px;font-size:13px;padding-left:46px}.search-icon{left:17px}.clear-search{top:7px}.search-wrap{margin-bottom:21px}.category-tags{gap:7px}.tag-btn{padding:8px 11px;font-size:12px;gap:7px}.controls{margin-bottom:24px}.results-bar{padding:20px 0 16px}.song-grid{grid-template-columns:minmax(0,1fr);gap:15px}.song-card{padding:22px}.song-title{font-size:20px}.scripture-box{min-height:0}.card-actions{gap:10px}.prayer-modal-btn,.yt-btn{min-height:45px;font-size:13px}.page-footer{margin-top:30px;flex-direction:column;gap:4px}.modal-overlay{padding:12px}.modal-card{padding:46px 18px 22px;max-height:calc(100dvh - 24px);border-radius:12px}.modal-content-box{padding:21px;gap:19px}.modal-scripture-text{font-size:20px}.modal-body-text{font-size:14px}.modal-song-title{margin-bottom:18px}}
-@media(prefers-reduced-motion:reduce){*{transition:none!important}}
-
-
-/* Rounded headings and larger desktop typography. */
-:root { --rounded-font: "Huninn", "Microsoft JhengHei", sans-serif; }
-body { font-size: 17px; }
-.school-name { font-family: var(--rounded-font); font-size: 34px; font-weight: 400; letter-spacing: 2px; line-height: 1.3; }
-.school-name span { font-size: 29px; }
-.site-top p { font-size: 13px; }
-header { padding: 36px 0 30px; }
-header h1 { font-family: var(--rounded-font); font-size: clamp(44px, 4vw, 58px); font-weight: 400; letter-spacing: 3px; }
-header > p { font-size: 19px; }
-.eyebrow { font-size: 14px; }
-.search-bar { font-size: 18px; height: 64px; }
-.clear-search { top: 11px; }
-.filter-heading { font-size: 16px; }
-.tag-btn { font-size: 16px; padding: 10px 15px; }
-.category-count { font-size: 14px; }
-.results-bar h2 { font-family: var(--rounded-font); font-size: 24px; font-weight: 400; }
-.result-count { font-size: 16px; }
-.song-title { font-family: var(--rounded-font); font-size: 26px; font-weight: 400; line-height: 1.5; }
-.song-artist { font-size: 16px; min-height: 26px; }
-.theme-badge { font-size: 14px; }
-.scripture-ref { font-size: 15px; }
-.scripture-text { font-size: 18px; line-height: 1.8; }
-.scripture-box { min-height: 155px; padding: 15px; }
-.prayer-modal-btn, .yt-btn { font-size: 16px; min-height: 48px; padding: 10px 12px; }
-.video-icon { font-size: 12px; }
-.yt-btn[aria-disabled] { font-size: 14px; }
-.page-footer { font-size: 14px; }
-.modal-card { max-width: 760px; }
-.modal-song-title { font-family: var(--rounded-font); font-size: 22px; font-weight: 400; }
-.modal-scripture-text { font-family: inherit; font-size: 26px; line-height: 1.8; font-weight: 400; }
-.modal-scripture-ref { font-size: 17px; }
-.modal-title { font-family: var(--rounded-font); font-size: 22px; font-weight: 400; }
-.modal-body-text { font-size: 19px; line-height: 1.9; }
-@media (max-width: 1100px) and (min-width: 641px) {
-    .song-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-}
-@media (max-width: 640px) {
-    .school-name { font-size: 28px; }
-    .school-name span { font-size: 24px; }
-    header { padding: 30px 0 26px; }
-    header h1 { font-size: 40px; letter-spacing: 2px; }
-    header > p { font-size: 16px; }
-    .eyebrow { font-size: 12px; }
-    .search-bar { font-size: 16px; height: 58px; padding-right: 48px; }
-    .clear-search { top: 8px; }
-    .filter-heading { font-size: 14px; }
-    .tag-btn { font-size: 14px; padding: 9px 11px; }
-    .category-count { font-size: 12px; }
-    .results-bar h2 { font-size: 22px; }
-    .result-count { font-size: 14px; }
-    .song-title { font-size: 24px; }
-    .song-artist { font-size: 15px; }
-    .scripture-text { font-size: 17px; }
-    .scripture-ref { font-size: 14px; }
-    .scripture-box { min-height: 0; }
-    .prayer-modal-btn, .yt-btn { font-size: 15px; }
-    .page-footer { font-size: 12px; }
-    .modal-song-title { font-size: 20px; }
-    .modal-scripture-text { font-size: 21px; }
-    .modal-scripture-ref { font-size: 15px; }
-    .modal-body-text { font-size: 17px; }
-}
+        :root { --navy: #243b53; --muted: #66717a; --gold: #9b7438; --line: #e3e3dc; --rounded: "Huninn", "Microsoft JhengHei", sans-serif; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { background: #f7f5f0; color: var(--navy); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft JhengHei", sans-serif; font-size: 18px; line-height: 1.7; }
+        .page { max-width: 1280px; min-height: 100vh; margin: auto; padding: 0 40px 28px; display: flex; flex-direction: column; }
+        .topbar { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 25px 0; border-bottom: 1px solid var(--line); }
+        .brand { font-family: var(--rounded); font-size: 34px; letter-spacing: 2px; line-height: 1.3; }
+        .brand span { color: var(--gold); margin-right: 10px; font-size: 29px; }
+        .topbar p { font-size: 13px; letter-spacing: 2.5px; color: var(--muted); }
+        main { flex: 1; }
+        .intro { padding: 44px 0 32px; }
+        .eyebrow { display: flex; align-items: center; gap: 12px; color: var(--gold); font-size: 14px; letter-spacing: 3px; margin-bottom: 16px; }
+        .eyebrow::before { content: ""; width: 28px; height: 1px; background: var(--gold); }
+        h1 { font-family: var(--rounded); font-size: clamp(42px, 4vw, 58px); font-weight: 400; line-height: 1.3; letter-spacing: 3px; margin-bottom: 17px; }
+        .intro > p { color: var(--muted); font-size: 20px; }
+        .section-label { font-size: 16px; font-weight: 500; color: var(--muted); margin-bottom: 16px; }
+        .portals { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 26px; }
+        .portal { display: flex; flex-direction: column; align-items: flex-start; min-width: 0; padding: 34px; border: 1px solid var(--line); border-radius: 18px; background: #fff; }
+        .portal-junior { background: #f4f2e9; border-color: #e5e0cf; }
+        .portal-middle { border-top: 4px solid var(--navy); padding-top: 31px; }
+        .portal-icon { width: 54px; height: 54px; padding: 12px; background: #eaf0f2; color: #536e7b; border-radius: 15px; margin-bottom: 25px; }
+        .portal-junior .portal-icon { background: #eae4d3; color: #977c44; }
+        .level { font-size: 15px; color: var(--gold); letter-spacing: 1px; margin-bottom: 4px; }
+        .portal h2 { font-family: var(--rounded); font-size: clamp(28px, 2.8vw, 38px); font-weight: 400; line-height: 1.35; margin-bottom: 15px; }
+        .description { font-size: 18px; color: #606d75; max-width: 28em; margin-bottom: 28px; }
+        .portal-bottom { margin-top: auto; width: 100%; padding-top: 22px; border-top: 1px solid #e3e6e0; }
+        .coming { display: inline-block; padding: 11px 20px; border: 1px solid #dcd5c2; border-radius: 9px; background: #ece7d9; color: #776647; font-size: 17px; }
+        .enter { display: flex; align-items: center; justify-content: space-between; gap: 20px; width: 100%; padding: 13px 20px; border-radius: 9px; background: var(--navy); color: #fff; text-decoration: none; font-size: 18px; transition: background .15s; }
+        .enter:hover { background: #162b40; }
+        .enter:focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; }
+        .enter span[aria-hidden] { font-size: 23px; line-height: 1; }
+        footer { margin-top: 44px; padding-top: 22px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; gap: 15px; color: var(--muted); font-size: 14px; }
+        @media (max-width: 760px) {
+            .page { padding: 0 22px 24px; }
+            .topbar { padding: 22px 0; }
+            .topbar p { display: none; }
+            .brand { font-size: 28px; }
+            .brand span { font-size: 24px; }
+            .intro { padding: 32px 0 26px; }
+            h1 { font-size: 40px; letter-spacing: 2px; }
+            .eyebrow { font-size: 12px; }
+            .intro > p { font-size: 17px; }
+            .portals { grid-template-columns: minmax(0, 1fr); gap: 18px; }
+            .portal { padding: 26px; }
+            .portal-middle { padding-top: 23px; }
+            .portal-icon { margin-bottom: 19px; }
+            .portal h2 { font-size: 29px; }
+            .description, .enter { font-size: 17px; }
+            footer { flex-direction: column; gap: 4px; font-size: 12px; margin-top: 30px; }
+        }
+        @media (prefers-reduced-motion: reduce) { .enter { transition: none; } }
     </style>
 </head>
 <body>
-
-    <div class="site-top"><div class="school-name"><span aria-hidden="true">♪</span> ICQM</div><p>WORSHIP SONG LIBRARY</p></div>
-    <header>
-        <div class="eyebrow">詩歌 · 經文 · 禱告</div>
-        <h1>詩歌資料庫</h1>
-        <p>以詩歌敬拜，以經文禱告</p>
-    </header>
-
-    <div class="controls">
-        <div class="search-wrap">
-            <svg class="search-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg>
-            <input type="search" id="searchInput" class="search-bar" aria-label="搜尋詩歌" placeholder="搜尋歌名、歌手、主題或經文…">
-            <button type="button" id="clearSearch" class="clear-search" aria-label="清除搜尋" hidden>×</button>
+    <div class="page">
+        <div class="topbar">
+            <div class="brand"><span aria-hidden="true">♪</span> ICQM</div>
+            <p>WORSHIP SONG LIBRARY</p>
         </div>
-        <p class="filter-heading">按主題探索</p>
-        
-        <div class="category-tags" id="categoryTags">
-            <button class="tag-btn active" data-category="全部" onclick="filterCategory('全部')">全部詩歌</button>
-            <button class="tag-btn" data-category="感謝" onclick="filterCategory('感謝')">感謝 Thanksgiving</button>
-            <button class="tag-btn" data-category="宣告" onclick="filterCategory('宣告')">宣告 Declaration</button>
-            <button class="tag-btn" data-category="讚美" onclick="filterCategory('讚美')">讚美 Praise</button>
-            <button class="tag-btn" data-category="信靠" onclick="filterCategory('信靠')">信靠 Trust</button>
-            <button class="tag-btn" data-category="呼求" onclick="filterCategory('呼求')">呼求 Pursuit</button>
-            <button class="tag-btn" data-category="堅持" onclick="filterCategory('堅持')">堅持 Persistence</button>
-            <button class="tag-btn" data-category="悔改" onclick="filterCategory('悔改')">悔改 Repentance</button>
-            <button class="tag-btn" data-category="愛慕" onclick="filterCategory('愛慕')">愛慕 Adoration</button>
-            <button class="tag-btn" data-category="渴慕" onclick="filterCategory('渴慕')">渴慕 Longing</button>
-            <button class="tag-btn" data-category="獻上" onclick="filterCategory('獻上')">獻上 Surrender</button>
-            <button class="tag-btn" data-category="禱告" onclick="filterCategory('禱告')">禱告 Prayer</button>
-            <button class="tag-btn" data-category="等候" onclick="filterCategory('等候')">等候 Waiting</button>
-            <button class="tag-btn" data-category="謙卑" onclick="filterCategory('謙卑')">謙卑 Humility</button>
-            <button class="tag-btn" data-category="跟隨" onclick="filterCategory('跟隨')">跟隨 Follow</button>
-        </div>
+        <main>
+            <header class="intro">
+                <div class="eyebrow">詩歌 · 經文 · 禱告</div>
+                <h1>詩歌資料庫</h1>
+                <p>以詩歌敬拜，以經文禱告</p>
+            </header>
+            <section aria-labelledby="choose-level">
+                <h2 class="section-label" id="choose-level">選擇你的學部</h2>
+                <div class="portals">
+                    <article class="portal portal-junior" aria-labelledby="junior-title">
+                        <svg class="portal-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21v-9M12 15C5 15 3 10 3 4c6 0 9 3 9 8M12 12c0-5 3-8 9-8 0 6-2 11-9 11"/></svg>
+                        <p class="level">小學</p>
+                        <h2 id="junior-title">Junior</h2>
+                        <p class="description">小學詩歌資料庫正在準備中，期待與你一起用詩歌讚美。</p>
+                        <div class="portal-bottom"><span class="coming">準備中</span></div>
+                    </article>
+                    <article class="portal portal-middle" aria-labelledby="middle-title">
+                        <svg class="portal-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5c-3-2-7-2-10-1v15c3-1 7-1 10 1 3-2 7-2 10-1V4c-3-1-7-1-10 1Zm0 0v15"/></svg>
+                        <p class="level">中學</p>
+                        <h2 id="middle-title">Middle &amp; Senior</h2>
+                        <p class="description">按主題探索詩歌，閱讀經文與禱告，一起在敬拜中親近神。</p>
+                        <div class="portal-bottom"><a class="enter" href="middle-senior.html" aria-label="進入 Middle &amp; Senior 詩歌資料庫">進入詩歌資料庫 <span aria-hidden="true">→</span></a></div>
+                    </article>
+                </div>
+            </section>
+        </main>
+        <footer><span>ICQM · 詩歌資料庫</span><span>讓詩歌走進校園，讓信仰融入生活。</span></footer>
     </div>
-
-    <div class="results-bar"><h2 id="resultsHeading">全部詩歌</h2><p class="result-count" id="resultCount" role="status" aria-live="polite"></p></div>
-    <main class="song-grid" id="songGrid" aria-label="詩歌列表"></main>
-    <footer class="page-footer"><span>ICQM · 詩歌資料庫</span><span>讓詩歌走進校園，讓信仰融入生活。</span></footer>
-
-    <!-- 彈出視窗 (Modal) -->
-    <div id="prayerModal" class="modal-overlay" onclick="closeModalOnOuterClick(event)">
-        <div class="modal-card" id="modalCard" role="dialog" aria-modal="true" aria-labelledby="modalSongTitle">
-            <button class="close-btn" aria-label="關閉經文與禱告" onclick="closePrayerModal()">✕</button>
-            <h2 class="modal-song-title" id="modalSongTitle"></h2>
-            <div class="modal-content-box" id="modalContentBox">
-                <!-- JavaScript 將會自動在這裡填入經文與禱告內文 -->
-            </div>
-        </div>
-    </div>
-
-    <script>
-        let currentCategory = '全部';
-        let searchQuery = '';
-        let previousFocus = null;
-        let previousOverflow = '';
-
-        const text = value => value == null ? '' : String(value);
-
-        function safeYouTubeUrl(value) {
-            try {
-                const url = new URL(text(value));
-                const hosts = ['youtube.com', 'www.youtube.com', 'm.youtube.com', 'music.youtube.com', 'youtu.be'];
-                return url.protocol === 'https:' && hosts.includes(url.hostname) &&
-                    !url.username && !url.password && !url.port ? url.href : '';
-            } catch {
-                return '';
-            }
-        }
-
-        function renderCategories() {
-            const container = document.getElementById('categoryTags');
-            const labels = new Map(Array.from(container.querySelectorAll('[data-category]'),
-                button => [button.dataset.category, button.textContent]));
-            labels.set('救恩', '救恩 Salvation');
-            const themes = new Set(songDatabase.map(song => text(song.theme)).filter(Boolean));
-            const categories = ['全部', ...Array.from(labels.keys()).filter(theme =>
-                theme !== '全部' && themes.has(theme)), ...Array.from(themes).filter(theme =>
-                theme !== '全部' && !labels.has(theme))];
-            container.replaceChildren();
-            categories.forEach(category => {
-                const button = document.createElement('button');
-                button.type = 'button';
-                button.className = 'tag-btn' + (category === currentCategory ? ' active' : '');
-                button.dataset.category = category;
-                button.title = labels.get(category) || category;
-                const label = document.createElement('span');
-                label.textContent = category === '全部' ? '全部詩歌' : category;
-                const count = document.createElement('span');
-                count.className = 'category-count';
-                count.textContent = category === '全部' ? songDatabase.length : songDatabase.filter(song => text(song.theme) === category).length;
-                button.append(label, count);
-                button.setAttribute('aria-pressed', String(category === currentCategory));
-                button.addEventListener('click', () => filterCategory(category));
-                container.appendChild(button);
-            });
-        }
-
-        window.addEventListener('DOMContentLoaded', () => {
-            if (typeof songDatabase !== 'undefined' && Array.isArray(songDatabase)) {
-                renderCategories();
-            }
-            renderSongs();
-        });
-
-        function renderSongs() {
-            const grid = document.getElementById('songGrid');
-            grid.replaceChildren();
-            document.getElementById('clearSearch').hidden = !searchQuery;
-            document.getElementById('resultsHeading').textContent = currentCategory === '全部' ? '全部詩歌' : currentCategory + '詩歌';
-            document.getElementById('resultCount').textContent = '';
-
-            if (typeof songDatabase === 'undefined' || !Array.isArray(songDatabase)) {
-                grid.innerHTML = '<div class="no-results">❌ 找不到 songs.js 檔案，請確認兩檔案放在同一資料夾中。</div>';
-                return;
-            }
-
-            const filteredSongs = songDatabase.filter(song => {
-                const matchesCategory = currentCategory === '全部' || text(song.theme) === currentCategory;
-                const matchesSearch = ['title', 'artist', 'theme', 'scriptureRef', 'scriptureText']
-                    .some(key => text(song[key]).toLocaleLowerCase().includes(searchQuery.toLocaleLowerCase()));
-                return matchesCategory && matchesSearch;
-            });
-
-            document.getElementById('resultCount').textContent = (searchQuery ? '找到 ' : '共 ') + filteredSongs.length + ' 首詩歌';
-            if (filteredSongs.length === 0) {
-                grid.innerHTML = '<div class="no-results">目前沒有符合條件的詩歌 😅</div>';
-                return;
-            }
-
-            filteredSongs.forEach(song => {
-                const card = document.createElement('div');
-                card.className = 'song-card';
-                // Only fixed markup goes into innerHTML; spreadsheet values are plain text.
-                card.innerHTML = `
-                    <div>
-                        <div class="card-header">
-                            <div class="song-title"></div>
-                            <div class="song-artist"></div>
-                        </div>
-                        <span class="theme-badge"></span>
-                        <div class="scripture-box">
-                            <span class="scripture-ref"></span>
-                            <span class="scripture-text"></span>
-                        </div>
-                    </div>`;
-                card.querySelector('.song-title').textContent = text(song.title) || '未命名詩歌';
-                card.querySelector('.song-artist').textContent = text(song.artist);
-                card.querySelector('.theme-badge').textContent = text(song.theme) || '未分類';
-                card.querySelector('.scripture-ref').textContent = text(song.scriptureRef);
-                card.querySelector('.scripture-text').textContent = '「' + text(song.scriptureText) + '」';
-                // Keep the actual song, rather than its position in the filtered results.
-                const actions = document.createElement('div');
-                actions.className = 'card-actions';
-                const prayerButton = document.createElement('button');
-                prayerButton.type = 'button';
-                prayerButton.className = 'prayer-modal-btn';
-                prayerButton.textContent = '經文與禱告';
-                prayerButton.addEventListener('click', () => openPrayerModal(song));
-                actions.appendChild(prayerButton);
-
-                const url = safeYouTubeUrl(song.youtubeUrl);
-                const video = document.createElement(url ? 'a' : 'span');
-                video.className = 'yt-btn';
-                video.textContent = url ? 'YouTube' : '暫無影片連結';
-                if (url) {
-                    const icon = document.createElement('span');
-                    icon.className = 'video-icon';
-                    icon.setAttribute('aria-hidden', 'true');
-                    icon.textContent = '▶';
-                    video.prepend(icon);
-                    video.setAttribute('aria-label', '在 YouTube 觀看 ' + text(song.title) + '（新分頁）');
-                }
-                if (url) {
-                    video.href = url;
-                    video.target = '_blank';
-                    video.rel = 'noopener noreferrer';
-                } else {
-                    video.setAttribute('aria-disabled', 'true');
-                }
-                actions.appendChild(video);
-                card.appendChild(actions);
-                grid.appendChild(card);
-            });
-        }
-
-        function openPrayerModal(song) {
-            if (!song) return;
-            previousFocus = document.activeElement;
-            previousOverflow = document.body.style.overflow;
-            document.body.style.overflow = 'hidden';
-            document.getElementById('modalSongTitle').textContent = text(song.title) + ' · 經文與禱告';
-            const modal = document.getElementById('prayerModal');
-            const modalCard = document.getElementById('modalCard');
-            const contentBox = document.getElementById('modalContentBox');
-            modalCard.style.backgroundImage = 'linear-gradient(145deg, #faf7ef, #eee8d8)';
-            if (song.bgImage) {
-                try {
-                    const url = new URL(text(song.bgImage), document.baseURI);
-                    if (url.protocol === 'https:' && !url.username && !url.password) {
-                        modalCard.style.backgroundImage = 'url(' + JSON.stringify(url.href) + ')';
-                    }
-                } catch { /* Keep the default background for invalid URLs. */ }
-            }
-            contentBox.replaceChildren();
-
-            if (song.scriptureText || song.scriptureRef) {
-                const scripture = document.createElement('div');
-                const verse = document.createElement('div');
-                verse.className = 'modal-scripture-text';
-                verse.textContent = '「' + text(song.scriptureText) + '」';
-                const ref = document.createElement('div');
-                ref.className = 'modal-scripture-ref';
-                ref.textContent = '—— ' + text(song.scriptureRef);
-                scripture.append(verse, ref);
-                contentBox.appendChild(scripture);
-            }
-
-            if (Array.isArray(song.prayerText) && song.prayerText.length > 0) {
-                if (song.scriptureText || song.scriptureRef) {
-                    const divider = document.createElement('div');
-                    divider.className = 'modal-divider';
-                    contentBox.appendChild(divider);
-                }
-                const prayer = document.createElement('div');
-                prayer.innerHTML = '<div class="modal-title">禱告</div><div class="modal-body-text"><ul></ul></div>';
-                const list = prayer.querySelector('ul');
-                song.prayerText.forEach(line => {
-                    const item = document.createElement('li');
-                    item.textContent = text(line);
-                    list.appendChild(item);
-                });
-                contentBox.appendChild(prayer);
-            }
-            modal.style.display = 'flex';
-            modalCard.scrollTop = 0;
-            modal.querySelector('.close-btn').focus();
-        }
-
-        function closePrayerModal() {
-            document.getElementById('prayerModal').style.display = 'none';
-            document.body.style.overflow = previousOverflow;
-            if (previousFocus && previousFocus.isConnected) previousFocus.focus();
-        }
-
-        function closeModalOnOuterClick(event) {
-            if (event.target.id === 'prayerModal') closePrayerModal();
-        }
-
-        function filterCategory(category) {
-            currentCategory = category;
-            document.querySelectorAll('.tag-btn').forEach(button => {
-                const active = button.dataset.category === category;
-                button.classList.toggle('active', active);
-                button.setAttribute('aria-pressed', String(active));
-            });
-            renderSongs();
-        }
-
-        document.addEventListener('keydown', event => {
-            if (document.getElementById('prayerModal').style.display !== 'flex') return;
-            if (event.key === 'Escape') closePrayerModal();
-            if (event.key === 'Tab') {
-                event.preventDefault();
-                document.querySelector('#prayerModal .close-btn').focus();
-            }
-        });
-        document.getElementById('clearSearch').addEventListener('click', () => {
-            const input = document.getElementById('searchInput');
-            input.value = '';
-            searchQuery = '';
-            renderSongs();
-            input.focus();
-        });
-
-        document.getElementById('searchInput').addEventListener('input', event => {
-            searchQuery = event.target.value.trim();
-            renderSongs();
-        });
-    </script>
 </body>
 </html>
