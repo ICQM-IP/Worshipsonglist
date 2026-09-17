@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Middle &amp; Senior · ICQM 詩歌資料庫</title>
+    <title>Junior · ICQM 詩歌資料庫</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Huninn&display=swap" rel="stylesheet">
     <!-- 引入同資料夾內的詩歌資料檔 -->
 <script>
-  document.write('<script src="songs_s.js?v=' + Date.now() + '"><\/script>');
+  document.write('<script src="songs_p.js?v=' + Date.now() + '"><\/script>');
 </script>
     <style>
 :root{--primary-color:#243b53;--primary-hover:#162b40;--bg-color:#f7f5f0;--card-bg:#fff;--text-main:#243b53;--text-sub:#66717a;--border-color:#e3e3dc;--gold:#9b7438}
@@ -112,7 +112,7 @@ header > p { font-size: 19px; }
 
     <div class="site-top"><div class="school-name"><span aria-hidden="true">♪</span> ICQM</div><a class="home-link" href="./">← 返回主頁</a></div>
     <header>
-        <div class="eyebrow school-level">Middle &amp; Senior <span>G5–12</span></div>
+        <div class="eyebrow school-level">Junior <span>G1–4</span></div>
         <h1>詩歌資料庫</h1>
         <p>用心靈唱出禱告，讓真理走進生活。</p>
     </header>
@@ -221,7 +221,7 @@ header > p { font-size: 19px; }
             document.getElementById('resultCount').textContent = '';
 
             if (typeof songDatabase === 'undefined' || !Array.isArray(songDatabase)) {
-                grid.innerHTML = '<div class="no-results">❌ 找不到 songs_s.js 檔案，請確認兩檔案放在同一資料夾中。</div>';
+                grid.innerHTML = '<div class="no-results">❌ 找不到 songs_p.js 檔案，請確認兩檔案放在同一資料夾中。</div>';
                 return;
             }
 
