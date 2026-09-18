@@ -25,7 +25,7 @@
         .section-label { font-size: 16px; font-weight: 500; color: var(--muted); margin-bottom: 16px; }
         .portals { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 26px; }
         .portal { display: flex; flex-direction: column; align-items: flex-start; min-width: 0; padding: 34px; border: 1px solid var(--line); border-radius: 18px; background: #fff; }
-        .portal-junior { background: #f4f2e9; border-color: #e5e0cf; }
+        .portal-junior { background: #f4f2e9; border-color: #e5e0cf; border-top: 4px solid #35634C; padding-top: 31px; }
         .portal-middle { border-top: 4px solid var(--navy); padding-top: 31px; }
         .portal-icon { width: 54px; height: 54px; padding: 12px; background: #eaf0f2; color: #536e7b; border-radius: 15px; margin-bottom: 25px; }
         .portal-junior .portal-icon { background: #E1EEDD; color: #5C8048; }
@@ -53,7 +53,7 @@
             .intro > p { font-size: 17px; }
             .portals { grid-template-columns: minmax(0, 1fr); gap: 18px; }
             .portal { padding: 26px; }
-            .portal-middle { padding-top: 23px; }
+            .portal-junior, .portal-middle { padding-top: 23px; }
             .portal-icon { margin-bottom: 19px; }
             .portal h2 { font-size: 29px; }
             .description, .enter { font-size: 17px; }
